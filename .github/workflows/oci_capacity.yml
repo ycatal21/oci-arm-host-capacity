@@ -25,7 +25,14 @@ jobs:
           cat << 'EOF' > private_key.pem
           ${{ secrets.OCI_PRIVATE_KEY }}
           EOF
-
+            - name: Debug Environment
+        run: |
+          echo "OCI_SHAPE value exists: ${{ secrets.OCI_SHAPE != '' }}"
+          echo "OCI_IMAGE_ID value exists: ${{ secrets.OCI_IMAGE_ID != '' }}"
+          echo "Shape env: $OCI_SHAPE"
+        env:
+          OCI_SHAPE: ${{ secrets.OCI_SHAPE }}
+          
       - name: Run Capacity Hunter
         run: php index.php
         env:
