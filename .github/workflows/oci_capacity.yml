@@ -37,4 +37,5 @@ jobs:
           OCI_SUBNET_ID: ${{ secrets.OCI_SUBNET_ID }}
           OCI_OCPU_COUNT: ${{ secrets.OCI_OCPU_COUNT }}
           OCI_MEMORY_IN_GBS: ${{ secrets.OCI_MEMORY_IN_GBS }}
+          OCI_SHAPE: ${{ secrets.OCI_SHAPE }} 
           OCI_IMAGE_ID: ${{ secrets.OCI_IMAGE_ID }}
