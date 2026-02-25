@@ -26,6 +26,18 @@ jobs:
           ${{ secrets.OCI_PRIVATE_KEY }}
           EOF
 
+      - name: Debug Shape Config
+        run: |
+          echo "OCPU length: ${#OCI_OCPU_COUNT}"
+          echo "OCPU value: $OCI_OCPU_COUNT"
+          echo "MEM length: ${#OCI_MEMORY_IN_GBS}"
+          echo "MEM value: $OCI_MEMORY_IN_GBS"
+          echo "SHAPE value: $OCI_SHAPE"
+        env:
+          OCI_OCPU_COUNT: ${{ secrets.OCI_OCPU_COUNT }}
+          OCI_MEMORY_IN_GBS: ${{ secrets.OCI_MEMORY_IN_GBS }}
+          OCI_SHAPE: ${{ secrets.OCI_SHAPE }}
+          
       - name: Run Capacity Hunter
         run: php index.php
         env:
